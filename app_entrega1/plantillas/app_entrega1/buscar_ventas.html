@@ -1,0 +1,34 @@
+{% extends 'app_entrega1/padre.html' %}
+
+{% load static %}
+
+{% block formulario_agregar %}
+<form action="{% url 'buscar_ventas' %}" method="POST">{% csrf_token %}
+    <table>
+      {{ formulario.as_table }}
+    </table>
+    <input type="submit" value="enviar">
+</form>
+{% endblock %}
+
+{% block columnas %}
+<tr>
+  <th><h1>venta_id</h1></th>
+  <th><h1>fecha_venta </h1></th>
+  <th><h1>cantidad_venta</h1></th>
+  <th><h1>usuario_id</h1></th>
+  
+</tr>
+{% endblock %}
+
+{% block tabla %}
+{% for venta in all_ventas %}
+<tr>
+   <td> {{ venta.venta_id }} </td>
+   <td> {{ venta.fecha_venta }} </td>
+   <td> {{ venta.cantidad_venta }} </td>
+   <td> {{ venta.usuario_id }} </td>
+   
+</tr>
+{% endfor %}
+{% endblock %}

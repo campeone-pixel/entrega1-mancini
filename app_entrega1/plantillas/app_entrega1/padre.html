@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'app_entrega1/style.css' %}">
+</head>
+<body>
+
+  <h1>BASE DE DATOS DE PRODUCTOS</h1>
+    <h2>GUARDAR PRODUCTO</h2>
+
+    
+      {% block formulario_agregar %}
+      
+      {% endblock %}
+    
+
+
+    <!-- <div class="formulario_busqueda">
+     {% block formulario_buscar %}
+      {% endblock %}
+    </div> -->
+    
+    <table class="container">
+      <thead>
+        <tr>
+          {% block columnas %}
+          {% endblock %}
+        </tr>
+      </thead>
+        {% block titulo_tabla %}
+        {% endblock %}
+      <tbody>
+        {% block tabla %}
+        {% endblock %}
+      </tbody>
+      
+      
+    </table>
+  
+</body>
+</html>
