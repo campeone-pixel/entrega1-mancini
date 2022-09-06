@@ -69,8 +69,9 @@ def guardar_ventas(request):
 
 def buscar_productos(request):
   if request.method=='POST':
-    producto=request.GET['producto']
-    busqueda=productos.objects.icontain(producto_id=producto)
+    producto=request.POST['producto_id']
+    
+    busqueda=productos.objects.filter(producto_id=producto)
     return render(request, 'app_entrega1/buscar_productos.html', {'all_productos':busqueda })
   else:
     all_productos = productos.objects.all()
