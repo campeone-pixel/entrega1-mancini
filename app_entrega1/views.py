@@ -5,7 +5,7 @@ from app_entrega1.forms import *
 from .models import *
 
 
-
+#---------------------------------------------------------------------------------------------------------------------
 def guardar_productos(request):
   if request.method=='POST':
     form=productos_formulario(request.POST)
@@ -26,7 +26,7 @@ def guardar_productos(request):
     all_productos = productos.objects.all()
     return render(request, 'app_entrega1/productos.html', {'formulario':formulario,
     'all_productos':all_productos})
-
+#---------------------------------------------------------------------------------------------------------------------
 def guardar_proveedores(request):
   if request.method=='POST':
     form=proveedores_formularios(request.POST)
@@ -46,7 +46,7 @@ def guardar_proveedores(request):
     all_proveedores = proveedores.objects.all()
     return render(request, 'app_entrega1/proveedores.html', {'formulario':formulario,
     'all_proveedores':all_proveedores})
-
+#---------------------------------------------------------------------------------------------------------------------
 def guardar_ventas(request):
   if request.method=='POST':
     form=ventas_formularios(request.POST)
@@ -66,21 +66,39 @@ def guardar_ventas(request):
     formulario=ventas_formularios()
     all_ventas = ventas.objects.all()
     return render(request, 'app_entrega1/ventas.html', {'formulario':formulario, 'all_ventas':all_ventas })
-
+#---------------------------------------------------------------------------------------------------------------------
 def buscar_productos(request):
   if request.method=='POST':
     producto=request.POST['producto_id']
     
     busqueda=productos.objects.filter(producto_id=producto)
+    
     return render(request, 'app_entrega1/buscar_productos.html', {'all_productos':busqueda })
   else:
     all_productos = productos.objects.all()
     return render(request, 'app_entrega1/buscar_productos.html', {'all_productos':all_productos})
-
+#---------------------------------------------------------------------------------------------------------------------
+  
 def buscar_proveedores(request):
-  pass
+  
 
+  if request.method=='POST':
+    provedor=request.POST['proveedor_id']
+    
+    busqueda=proveedores.objects.filter(proveedor_id=provedor)
+    return render(request, 'app_entrega1/buscar_proveedores.html', {'all_proveedores':busqueda })
+  else:
+    all_proveedores = proveedores.objects.all()
+    return render(request, 'app_entrega1/buscar_proveedores.html', {'all_proveedores':all_proveedores})
+ #---------------------------------------------------------------------------------------------------------------------
+  
 def buscar_ventas(request):
-  pass
-
+  if request.method=='POST':
+    venta=request.POST['venta_id']
+    
+    busqueda=ventas.objects.filter(venta_id=venta)
+    return render(request, 'app_entrega1/buscar_ventas.html', {'all_ventas':busqueda })
+  else:
+    all_ventas = ventas.objects.all()
+    return render(request, 'app_entrega1/buscar_ventas.html', {'all_ventas':all_ventas})
 

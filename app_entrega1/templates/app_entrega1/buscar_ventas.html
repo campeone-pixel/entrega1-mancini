@@ -3,10 +3,10 @@
 {% load static %}
 
 {% block formulario_agregar %}
+<h1>formulario de busqueda de productos</h1>
 <form action="{% url 'buscar_ventas' %}" method="POST">{% csrf_token %}
-    <table>
-      {{ formulario.as_table }}
-    </table>
+     
+   <input type="number" name="venta_id" id="venta_id">
     <input type="submit" value="enviar">
 </form>
 {% endblock %}
