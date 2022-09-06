@@ -55,7 +55,7 @@ ROOT_URLCONF = 'entrega1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Mati/Documents/Python Scripts/MVT+primera_entrega/entrega1/app_entrega1/plantillas'],
+        'DIRS': [''],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
