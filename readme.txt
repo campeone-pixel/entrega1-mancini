@@ -1,11 +1,16 @@
 Primer entrega 
 
+:construction: Proyecto en construcción :construction:
 
+##Índice
 
-1)Descrpciion del proyecto
-2)Características del proyecto
-3)Manual de uso
-4)Participantes
+*[Descrpciion del proyecto](#Descrpcion del proyecto)
+
+*[Características del proyecto](#Características del proyecto)
+
+*[Manual de uso](#Manual de uso)
+
+*[Participantes](#Participantes)
 
 
 
