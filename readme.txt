@@ -1,5 +1,8 @@
 <em> Primer entrega </em>
 
+![](/entrega1-Poses/app_entrega1/readme/MODO.JPG)
+
+
 
 ##Índice
 
