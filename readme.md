@@ -4,7 +4,7 @@ Primer entrega
 
 ## Índice
 
-*[Descrpciion del proyecto](#Descrpcion del proyecto)
+*[Descrpcion del proyecto](#Descrpcion del proyecto)
 
 *[Características del proyecto](#Características del proyecto)
 
