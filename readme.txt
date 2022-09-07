@@ -1,6 +1,6 @@
 <em> Primer entrega </em>
 
-![](/entrega1-Poses/app_entrega1/readme/MODO.JPG)
+![Go](https://images.squarespace-cdn.com/content/v1/5f3297f1e78b991ffeb477d9/8ac0173d-ef39-4b8d-8275-186c98289805/Base+de+datos.png)
 
 
 
