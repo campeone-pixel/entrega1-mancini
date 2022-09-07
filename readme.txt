@@ -1,18 +1,5 @@
-<em> Primer entrega </em>
+Primer entrega 
 
-![Go](https://www.freepik.es/vector-gratis/concepto-procesamiento-datos-grandes-sala-servidores-acceso-token-tecnologia-blockchain_3629651.htm#query=data%20base&position=0&from_view=search)
-
-
-
-##Índice
-
-
-
-*[Índice](#índice)
-*[Descripción del proyecto]
-*[Características de la aplicación ]
-*[Manual de uso]
-*[Personas-Desarrolladores del Proyecto]
 
 
 1)Descrpciion del proyecto
@@ -22,18 +9,18 @@
 
 
 
-(#descripción-del-proyecto)
+(#descripción del proyecto)
 El proyecto trata de una base de datos para la venta de productos varios, contando con proveedores y ventas.
 
-(#Características-de-la-aplicación)
+(#Características del proyecto)
 Las funcionalidades son el agregar y el buscar en las 3 clases los productos deseados, como asi la muestra de tablas y navegacion entre paginas.
 
-(#acceso-proyecto)
+(#Manual de uso)
 Esta compuesto por la pagina inicial con acceso a 6 botones. Cada uno de ellos dirige a cada funcionalidad del programa agrupando estos por clase y
 en cada una de esas paginas de encontrara un boton de volver para acceder a las demas.
 
 En las paginas con funcionalidad de "guardar" seran validado los campos para el ingreso optimo de cada objeto y seran posteriormente filtrados en caso de 
 elegir la funcionalidad de "buscar" mediante un id.
 
-(#personas-desarrolladores)
+(#Participantes)
 Matias-Mancini y Matias-Poses 
