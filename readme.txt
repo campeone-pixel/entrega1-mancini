@@ -5,13 +5,13 @@
 
 
 
-*[Índice]
+*[Índice](#índice)
 *[Descripción del proyecto]
 *[Características de la aplicación ]
 *[Manual de uso]
 *[Personas-Desarrolladores del Proyecto]
 
-(#índice)
+
 1)Descrpciion del proyecto
 2)Características del proyecto
 3)Manual de uso
