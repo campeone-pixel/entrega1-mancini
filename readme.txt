@@ -1,6 +1,6 @@
 <em> Primer entrega </em>
 
-![Go](https://images.squarespace-cdn.com/content/v1/5f3297f1e78b991ffeb477d9/8ac0173d-ef39-4b8d-8275-186c98289805/Base+de+datos.png)
+![Go](https://www.freepik.es/vector-gratis/concepto-procesamiento-datos-grandes-sala-servidores-acceso-token-tecnologia-blockchain_3629651.htm#query=data%20base&position=0&from_view=search)
 
 
 
