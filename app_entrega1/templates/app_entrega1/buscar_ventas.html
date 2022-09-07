@@ -2,6 +2,11 @@
 
 {% load static %}
 
+{% block titulo %}
+  <h1>BASE DE DATOS DE VENTAS</h1>
+  <h2>Buscar ventas </h2>
+{% endblock %}
+
 {% block formulario_agregar %}
 <h1>formulario de busqueda de productos</h1>
 <form action="{% url 'buscar_ventas' %}" method="POST">{% csrf_token %}

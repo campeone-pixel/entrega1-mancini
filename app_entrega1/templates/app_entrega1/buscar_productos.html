@@ -1,7 +1,10 @@
 {% extends 'app_entrega1/padre.html' %}
 
 {% load static %}
-
+{% block titulo %}
+<h1>BASE DE DATOS DE PRODUCTOS</h1>
+<h2>Buscar productos </h2>
+{% endblock %}
 {% block formulario_agregar %}
 <h1>formulario de busqueda de productos</h1>
 <form action="{% url 'buscar_productos' %}" method="POST">{% csrf_token %}

@@ -4,7 +4,8 @@ from django.shortcuts import render
 from app_entrega1.forms import *
 from .models import *
 
-
+def inicio(request):
+  return render(request, 'app_entrega1/inicio.html', )
 #---------------------------------------------------------------------------------------------------------------------
 def guardar_productos(request):
   if request.method=='POST':

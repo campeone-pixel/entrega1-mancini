@@ -1,7 +1,10 @@
 {% extends 'app_entrega1/padre.html' %}
 
 {% load static %}
-
+{% block titulo %}
+  <h1>BASE DE DATOS DE PRODUCTOS</h1>
+  <h2>Guardar Productos</h2>
+{% endblock %}
 {% block formulario_agregar %}
 <form action="{% url 'guardar_productos' %}" method="POST">{% csrf_token %}
     <table>

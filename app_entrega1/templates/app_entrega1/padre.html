@@ -9,9 +9,21 @@
     <link rel="stylesheet" href="{% static 'app_entrega1/style.css' %}">
   </head>
   <body>
-    <h1>BASE DE DATOS DE PRODUCTOS</h1>
-    <h2>GUARDAR PRODUCTO</h2>
-
+    
+    <nav>
+      <div class="container">
+        <button><a href="{% url 'buscar_productos' %} ">Productos</a></button>
+        <button> <a href="{% url 'buscar_proveedores' %}">Proveedores</a></button>             
+        <button> <a href="{% url 'buscar_ventas' %}">Ventas</a></button>
+        
+        <button><a href="{% url 'inicio' %}"> Volver</a></button>
+        {% comment "PODEMOS HACER ESTO O CREO YO SACARLE LOS BOTONES T DEJARLOS SOLO EN INICIO" %}{% endcomment %}
+      </div>
+    </nav>
+    
+    
+    {% block titulo %} 
+    {% endblock %} 
     {% block formulario_agregar %} {% endblock %}
 
     <!-- <div class="formulario_busqueda">
