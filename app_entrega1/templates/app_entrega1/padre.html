@@ -6,15 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'app_entrega1/style.css' %}">
+    <link rel="stylesheet" href="{% static 'app_entrega1/css/style.css' %}">
   </head>
   <body>
     
     <nav>
       <div class="container">
-        <button><a href="{% url 'buscar_productos' %} ">Productos</a></button>
-        <button> <a href="{% url 'buscar_proveedores' %}">Proveedores</a></button>             
-        <button> <a href="{% url 'buscar_ventas' %}">Ventas</a></button>
+       
         
         <button><a href="{% url 'inicio' %}"> Volver</a></button>
         {% comment "PODEMOS HACER ESTO O CREO YO SACARLE LOS BOTONES T DEJARLOS SOLO EN INICIO" %}{% endcomment %}

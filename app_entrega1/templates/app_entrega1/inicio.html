@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'app_entrega1/style.css' %}">
+    <link rel="stylesheet" href="{% static 'app_entrega1/css/style_inicio.css' %}">
   </head>
   <body>
     
@@ -15,13 +15,14 @@
          
         
           <div class="container-botonera">
-            <div><button><a href="{% url 'guardar_productos' %}"> Guardar Productos</a></button></div>
-            <div><button><a href="{% url 'buscar_productos' %}"> Buscar Productos</a></button></div>
-            <div><button><a href="{% url 'guardar_proveedores' %}"> Guardar Proveedores</a></button></div>
-            <div><button><a href="{% url 'buscar_proveedores' %}"> Buscar Proveedores</a></button></div>
-            <div><button><a href="{% url 'guardar_ventas' %}"> Guardar Ventas</a></button></div>
+            <button class="botones_inicio"><a href="{% url 'guardar_productos' %}">Guardar Productos</a></button>
             
-            <div><button><a href="{% url 'buscar_ventas' %}"> Buscar Ventas</a></button></div>
+            <button class="botones_inicio"><a href="{% url 'buscar_productos' %}"> Buscar Productos</a></button>
+            <button class="botones_inicio"><a href="{% url 'guardar_proveedores' %}"> Guardar Proveedores</a></button>
+            <button class="botones_inicio"><a href="{% url 'buscar_proveedores' %}"> Buscar Proveedores</a></button>
+            <button class="botones_inicio"><a href="{% url 'guardar_ventas' %}"> Guardar Ventas</a></button>
+            
+            <button class="botones_inicio"><a href="{% url 'buscar_ventas' %}"> Buscar Ventas</a></button>
           </div>
           
       </div>
