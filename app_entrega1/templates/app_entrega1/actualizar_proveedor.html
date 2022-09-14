@@ -7,10 +7,12 @@
 {% endblock %}
 {% block formulario_agregar %}
 <h1>formulario de busqueda de productos</h1>
-<form action="{% url 'buscar_proveedores' %}" method="POST">{% csrf_token %}
+<form action="{% url 'actualizar_proveedor' proveedor.proveedor_id %}" method="POST">{% csrf_token %}
      
-   <input type="number" name="proveedor_id" id="proveedor_id">
-    <input type="submit" value="enviar">
+  <table>
+    {{ miformulario.as_table }}
+  </table>
+  <input type="submit" value="guardar">
 </form>
 {% endblock %}
 
@@ -32,8 +34,7 @@
    <td> {{ proveedor.nombre_proveedor }} </td>
    <td> {{ proveedor.direccion_proveedor }} </td>
    <td> {{ proveedor.cuit }} </td>
-   <td><button><a href="{% url 'eliminar_proveedor' proveedor.proveedor_id %}">Eliminar</a></button></td>
-   <td><button><a href="{% url 'actualizar_proveedor' proveedor.proveedor_id %}">Actualizar</a></button></td>
+
 </tr>
 {% endfor %}
 {% endblock %}

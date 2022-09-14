@@ -103,3 +103,90 @@ def buscar_ventas(request):
     all_ventas = ventas.objects.all()
     return render(request, 'app_entrega1/buscar_ventas.html', {'all_ventas':all_ventas})
 
+#-----------------------------------------------------------------------------------
+def eliminar_venta(request):
+  if request.method=='POST':
+    venta=request.POST['venta_id']
+    
+    busqueda=ventas.objects.filter(venta_id=venta)
+    busqueda.delete()
+    all_ventas = ventas.objects.all()
+    return render(request, 'app_entrega1/eliminar_venta.html', {'all_ventas':all_ventas})
+  else:
+    all_ventas = ventas.objects.all()
+    return render(request, 'app_entrega1/eliminar_venta.html', {'all_ventas':all_ventas})
+#--------------------------------------------------------------------------------------
+def eliminar_proveedor(request,proveedor_id):
+  proveedor_a_borrar=proveedores.objects.get(proveedor_id=proveedor_id)
+  proveedor_a_borrar.delete()
+  all_proveedores = proveedores.objects.all()
+  return render(request, 'app_entrega1/buscar_proveedores.html', {'all_proveedores':all_proveedores})
+
+#------------------------------------------------------------------------------------------
+
+def actualizar_proveedor(request,id):
+  proveedor=proveedores.objects.get(proveedor_id=id)
+  if request.method=='POST':
+    pass
+  else:
+    miformulario=proveedores(initial={'proveedor_id':proveedor.proveedor_id,'nombre_proveedor':proveedor.nombre_proveedor,'direccion_proveedor':proveedor.direccion_proveedor,'cuit':proveedor.cuit})
+    return render( request, 'app_entrega1/actualizar_proveedor.html',{'formulario':miformulario,'proveedor':proveedor})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
