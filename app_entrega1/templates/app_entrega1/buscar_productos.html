@@ -32,6 +32,8 @@
    <td> {{ producto.empresa }} </td>
    <td> {{ producto.tipo_producto }} </td>
    <td> {{ producto.precio }} </td>
+   <td><button><a href="{% url 'eliminar_producto' producto.producto_id %}">Eliminar</a></button></td>
+   <td><button><a href="{% url 'actualizar_producto' producto.producto_id %}">Actualizar</a></button></td>
 </tr>
 {% endfor %}
 {% endblock %}
