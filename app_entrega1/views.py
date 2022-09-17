@@ -1,5 +1,7 @@
+from dataclasses import dataclass
 from django.shortcuts import render
-
+from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
+from django.contrib.auth import login,logout,authenticate
 
 from app_entrega1.forms import *
 from .models import *
@@ -177,6 +179,47 @@ def actualizar_producto(request,producto_id):
     miformulario=productos_formulario(initial={'f_producto_id':producto.producto_id,'f_nombre_producto':producto.nombre_producto,'f_empresa':producto.empresa,'f_tipo_producto':producto.tipo_producto,'f_precio':producto.precio})
     return render( request, 'app_entrega1/actualizar_producto.html',{'miformulario':miformulario,'producto':producto})
 
+
+
+def login_request(request):
+  if request.method =="POST":
+    form=AuthenticationForm(request,data = request.POST)
+
+    if form.is_valid():
+      usuario = form.cleaned_data.get("username")
+      contra = form.cleaned_data.get("password")
+
+      user= authenticate(username=usuario, password=contra)
+
+      if user is not None:
+        login(request,user)
+        return render(request, "app_entrega1/inicio.html", {"mensaje":f"Bienvenido {usuario}"})
+
+      else:
+        return render(request, "app_entrega1/inicio.html", {"mensaje":"Error, datos incorrectos"})
+
+  else:
+        return render(request, "app_entrega1/inicio.html", {"mensaje":"Error, Formulario erroneo"})
+
+  form = AuthenticationForm()
+
+  return render(request, "app_entrega1/login.html", {"form":form})
+
+def register(request):
+  if request.method =="POST":
+    form = UserRegisterForm(request.POST)
+
+    if form.is_valid():
+      username = form.cleaned_data.get["username"]
+      form.save()
+      return render(request, "app_entrega1/inicio.html", {"mensaje":"{username} Usuario creado"})
+
+  else:
+    form=UserRegisterForm()
+
+  return render(request, "app_entrega1/registro.html", {"form":form})
+
+  
 
 
 
