@@ -2,12 +2,12 @@
 
 {% load static %}
 {% block titulo %}
-  <h1>BASE DE DATOS DE PROVEEDORES</h1>
-  <h2>Actualizar proveedores </h2>
+  <h1>BASE DE DATOS DE VENTAS</h1>
+  <h2>Actualizar venta </h2>
 {% endblock %}
 {% block formulario_agregar %}
 
-<form action="{% url 'actualizar_proveedor' proveedor.proveedor_id %}" method="POST">{% csrf_token %}
+<form action="{% url 'actualizar_venta' venta.venta_id %}" method="POST">{% csrf_token %}
      
   <table>
     {{ miformulario.as_table }}

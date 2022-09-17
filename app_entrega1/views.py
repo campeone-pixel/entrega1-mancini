@@ -142,26 +142,40 @@ def actualizar_proveedor(request,proveedor_id):
       return render(request,'app_entrega1/buscar_proveedores.html')
   else:
     miformulario=proveedores_formularios(initial={'f_proveedor_id':proveedor.proveedor_id,'f_nombre_proveedor':proveedor.nombre_proveedor,'f_direccion_proveedor':proveedor.direccion_proveedor,'f_cuit':proveedor.cuit})
-    return render( request, 'app_entrega1/buscar_proveedores.html',{'miformulario':miformulario,'proveedor':proveedor})
+    return render( request, 'app_entrega1/actualizar_proveedor.html',{'miformulario':miformulario,'proveedor':proveedor})
 
 def actualizar_venta(request,venta_id):
   venta=ventas.objects.get(venta_id=venta_id)
   if request.method=='POST':
     formulario = ventas_formularios(request.POST)
     if formulario.is_valid():
-      venta_actualizado = formulario.cleaned_data
-      venta.venta_id = venta_actualizado['f_venta_id']
-      venta.fecha_venta = venta_actualizado['f_fecha_venta']
-      venta.cantidad_venta = venta_actualizado['f_cantidad_venta']
-      venta.usuario_id = venta_actualizado['f_usuario_id']
+      producto_actualizado = formulario.cleaned_data
+      venta.venta_id = producto_actualizado['f_venta_id']
+      venta.fecha_venta = producto_actualizado['f_fecha_venta']
+      venta.cantidad_venta = producto_actualizado['f_cantidad_venta']
+      venta.usuario_id = producto_actualizado['f_usuario_id']
       venta.save()
       return render(request,'app_entrega1/buscar_ventas.html')
   else:
     miformulario=ventas_formularios(initial={'f_venta_id':venta.venta_id,'f_fecha_venta':venta.fecha_venta,'f_cantidad_venta':venta.cantidad_venta,'f_usuario_id':venta.usuario_id})
-    return render( request, 'app_entrega1/actualizar_proveedor.html',{'miformulario':miformulario,'venta':venta})
+    return render( request, 'app_entrega1/actualizar_venta.html',{'miformulario':miformulario,'venta':venta})
 
-def actualizar_producto():
-  pass
+def actualizar_producto(request,producto_id):
+  producto=productos.objects.get(producto_id=producto_id)
+  if request.method=='POST':
+    formulario = productos_formulario(request.POST)
+    if formulario.is_valid():
+      producto_actualizado = formulario.cleaned_data
+      producto.producto_id = producto_actualizado['f_producto_id']
+      producto.nombre_producto = producto_actualizado['f_nombre_producto']
+      producto.empresa = producto_actualizado['f_empresa']
+      producto.tipo_producto = producto_actualizado['f_tipo_producto']
+      producto.precio = producto_actualizado['f_precio']
+      producto.save()
+      return render(request,'app_entrega1/buscar_ventas.html')
+  else:
+    miformulario=productos_formulario(initial={'f_producto_id':producto.producto_id,'f_nombre_producto':producto.nombre_producto,'f_empresa':producto.empresa,'f_tipo_producto':producto.tipo_producto,'f_precio':producto.precio})
+    return render( request, 'app_entrega1/actualizar_producto.html',{'miformulario':miformulario,'producto':producto})
 
 
 
