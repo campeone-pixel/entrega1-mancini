@@ -1,12 +1,12 @@
-{% extends 'app_entrega1/padre.html' %}
+{% extends 'app_entrega1/bd.html' %}
 
 {% load static %}
 {% block titulo %}
-  <h1>BASE DE DATOS DE PROVEEDORES</h1>
-  <h2>Buscar proveedores </h2>
+  
+  <h1>Buscar proveedores </h1>
 {% endblock %}
 {% block formulario_agregar %}
-<h1>formulario de busqueda de productos</h1>
+<h2>formulario de busqueda de productos</h2>
 <form action="{% url 'buscar_proveedores' %}" method="POST">{% csrf_token %}
      
    <input type="number" name="proveedor_id" id="proveedor_id">
@@ -17,10 +17,10 @@
 
 {% block columnas %}
 <tr>
-  <th><h1>proveedor_id</h1></th>
-  <th><h1>nombre_proveedor</h1></th>
-  <th><h1>direccion_proveedor</h1></th>
-  <th><h1>cuit</h1></th>
+  <th><h2>proveedor_id</h2></th>
+  <th><h2>nombre_proveedor</h2></th>
+  <th><h2>direccion_proveedor</h2></th>
+  <th><h2>cuit</h2></th>
   
 </tr>
 {% endblock %}

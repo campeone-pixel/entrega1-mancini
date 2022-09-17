@@ -1,0 +1,44 @@
+<html>
+<head>
+  {% load static %}
+	<style type="text/css">
+
+	</style>
+	<title>{% block title %}Tim's Site{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'app_entrega1/bd.css' %}">
+</head>
+ 
+<body>
+	
+    <div class="sidenav">
+      <a href="{% url 'guardar_productos' %}">Guardar Productos</a>
+      <a href="{% url 'guardar_proveedores' %}">Guardar Proveedores</a>
+      <a href="{% url 'guardar_ventas' %}">Guardar Ventas</a>
+      <a href="{% url 'buscar_productos' %}">Buscar Productos</a>
+      <a href="{% url 'buscar_proveedores' %}">Buscar Proveedores</a>
+      <a href="{% url 'buscar_ventas' %}">Buscar Ventas</a>
+    </div>
+    
+    <div class="content">
+        <div class="formulario">
+          {% block titulo %}
+          {% endblock %}
+          {% block formulario_agregar %} {% endblock %}
+        </div>
+        
+          <table class="container">
+            <thead>
+              <tr>
+                {% block columnas %} {% endblock %}
+              </tr>
+            </thead>
+            {% block titulo_tabla %} {% endblock %}
+            <tbody>
+              {% block tabla %} {% endblock %}
+            </tbody>
+          </table>
+        
+    </div>
+  
+</body>
+</html>

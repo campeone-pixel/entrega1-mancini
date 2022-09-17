@@ -1,9 +1,9 @@
-{% extends 'app_entrega1/padre.html' %}
+{% extends 'app_entrega1/bd.html' %}
 
 {% load static %}
 {% block titulo %}
-  <h1>BASE DE DATOS DE VENTAS</h1>
-  <h2>Guardar Ventas</h2>
+  
+  <h1>Guardar Ventas</h1>
 {% endblock %}
 {% block formulario_agregar %}
 <form action="{% url 'guardar_ventas' %}" method="POST">{% csrf_token %}
@@ -16,10 +16,10 @@
 
 {% block columnas %}
 <tr>
-  <th><h1>venta_id</h1></th>
-  <th><h1>fecha_venta </h1></th>
-  <th><h1>cantidad_venta</h1></th>
-  <th><h1>usuario_id</h1></th>
+  <th><h2>venta_id</h2></th>
+  <th><h2>fecha_venta </h2></th>
+  <th><h2>cantidad_venta</h2></th>
+  <th><h2>usuario_id</h2></th>
   
 </tr>
 {% endblock %}

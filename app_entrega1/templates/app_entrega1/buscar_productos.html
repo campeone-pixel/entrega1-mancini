@@ -1,12 +1,12 @@
-{% extends 'app_entrega1/padre.html' %}
+{% extends 'app_entrega1/bd.html' %}
 
 {% load static %}
 {% block titulo %}
-<h1>BASE DE DATOS DE PRODUCTOS</h1>
-<h2>Buscar productos </h2>
+
+<h1>Buscar productos </h1>
 {% endblock %}
 {% block formulario_agregar %}
-<h1>formulario de busqueda de productos</h1>
+<h2>formulario de busqueda de productos</h2>
 <form action="{% url 'buscar_productos' %}" method="POST">{% csrf_token %}
      
    <input type="number" name="producto_id" id="producto_id">
@@ -16,11 +16,11 @@
 
 {% block columnas %}
 <tr>
-  <th><h1>Producto_id</h1></th>
-  <th><h1>Nombre Producto</h1></th>
-  <th><h1>Empresa</h1></th>
-  <th><h1>Tipo</h1></th>
-  <th><h1>Precio</h1></th>
+  <th><h2>Producto_id</h2></th>
+  <th><h2>Nombre Producto</h2></th>
+  <th><h2>Empresa</h2></th>
+  <th><h2>Tipo</h2></th>
+  <th><h2>Precio</h2></th>
 </tr>
 {% endblock %}
 

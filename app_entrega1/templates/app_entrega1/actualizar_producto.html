@@ -1,9 +1,9 @@
-{% extends 'app_entrega1/padre.html' %}
+{% extends 'app_entrega1/bd.html' %}
 
 {% load static %}
 {% block titulo %}
-  <h1>BASE DE DATOS DE Producto</h1>
-  <h2>Actualizar producto </h2>
+  
+  <h1>Actualizar producto </h1>
 {% endblock %}
 {% block formulario_agregar %}
 
@@ -19,21 +19,23 @@
 
 {% block columnas %}
 <tr>
-  <th><h1>proveedor_id</h1></th>
-  <th><h1>nombre_proveedor</h1></th>
-  <th><h1>direccion_proveedor</h1></th>
-  <th><h1>cuit</h1></th>
+  <th><h2>Producto_id</h2></th>
+  <th><h2>Nombre Producto</h2></th>
+  <th><h2>Empresa</h2></th>
+  <th><h2>Tipo</h2></th>
+  <th><h2>Precio</h2></th>
   
 </tr>
 {% endblock %}
 
 {% block tabla %}
-{% for proveedor in all_proveedores %}
+{% for producto in all_productos %}
 <tr>
-   <td> {{ proveedor.proveedor_id }} </td>
-   <td> {{ proveedor.nombre_proveedor }} </td>
-   <td> {{ proveedor.direccion_proveedor }} </td>
-   <td> {{ proveedor.cuit }} </td>
+  <td> {{ producto.producto_id }} </td>
+  <td> {{ producto.nombre_producto }} </td>
+  <td> {{ producto.empresa }} </td>
+  <td> {{ producto.tipo_producto }} </td>
+  <td> {{ producto.precio }} </td>
 
 </tr>
 {% endfor %}

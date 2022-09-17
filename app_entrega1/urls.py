@@ -3,7 +3,8 @@ from django.urls import path
 from app_entrega1.views import *
 
 urlpatterns = [
-   path("",inicio,name="inicio"),
+   
+   path("bd/",bd,name="bd"),
    path("productos/",guardar_productos, name='guardar_productos'),
    path("proveedores/",guardar_proveedores, name='guardar_proveedores'),
    path("ventas/",guardar_ventas, name='guardar_ventas'),
@@ -20,7 +21,7 @@ urlpatterns = [
    path("actualizar_producto/<producto_id>",actualizar_producto, name='actualizar_producto'),
    path("actualizar_venta/<venta_id>",actualizar_venta, name='actualizar_venta'),
 
-   #path("eliminar_producto/",eliminar_producto, name='eliminar_producto'),
+   path("login_request/", login_request, name="login_request")
   
    
 
