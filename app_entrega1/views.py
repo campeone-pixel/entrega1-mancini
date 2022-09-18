@@ -1,13 +1,25 @@
+<<<<<<< HEAD
 from dataclasses import dataclass
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login,logout,authenticate
 
+=======
+from multiprocessing import AuthenticationError
+from telnetlib import AUTHENTICATION
+from django.shortcuts import render
+>>>>>>> ef73fa322ea4163158b0a6c0d17c69e457e8b64b
 from app_entrega1.forms import *
 from .models import *
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
 
-def inicio(request):
-  return render(request, 'app_entrega1/inicio.html', )
+
+
+def bd(request):
+  return render(request, 'app_entrega1/bd.html', )
+
+
 #------------------------guardar-datos---------------------------------------------------------------------------------------------
 def guardar_productos(request):
   if request.method=='POST':
@@ -74,22 +86,16 @@ def guardar_ventas(request):
 #---------------------buscador------------------------------------------------------------------------------------------------
 def buscar_productos(request):
   if request.method=='POST':
-    producto=request.POST['producto_id']
-    
+    producto=request.POST['producto_id'] 
     busqueda=productos.objects.filter(producto_id=producto)
-    
     return render(request, 'app_entrega1/buscar_productos.html', {'all_productos':busqueda })
   else:
     all_productos = productos.objects.all()
     return render(request, 'app_entrega1/buscar_productos.html', {'all_productos':all_productos})
 
-  
 def buscar_proveedores(request):
-  
-
   if request.method=='POST':
     provedor=request.POST['proveedor_id']
-    
     busqueda=proveedores.objects.filter(proveedor_id=provedor)
     return render(request, 'app_entrega1/buscar_proveedores.html', {'all_proveedores':busqueda })
   else:
@@ -100,7 +106,6 @@ def buscar_proveedores(request):
 def buscar_ventas(request):
   if request.method=='POST':
     venta=request.POST['venta_id']
-    
     busqueda=ventas.objects.filter(venta_id=venta)
     return render(request, 'app_entrega1/buscar_ventas.html', {'all_ventas':busqueda })
   else:
@@ -108,7 +113,6 @@ def buscar_ventas(request):
     return render(request, 'app_entrega1/buscar_ventas.html', {'all_ventas':all_ventas})
 
 #-----------------------------------------------------------------------------------
-
 
 def eliminar_proveedor(request,proveedor_id):
   proveedor_a_borrar=proveedores.objects.get(proveedor_id=proveedor_id)
@@ -141,10 +145,12 @@ def actualizar_proveedor(request,proveedor_id):
       proveedor.direccion_proveedor = producto_actualizado['f_direccion_proveedor']
       proveedor.cuit = producto_actualizado['f_cuit']
       proveedor.save()
-      return render(request,'app_entrega1/buscar_proveedores.html')
+      all_proveedores = proveedores.objects.all()
+      return render(request,'app_entrega1/buscar_proveedores.html',{'all_proveedores':all_proveedores})
   else:
+    all_proveedores = proveedores.objects.all()
     miformulario=proveedores_formularios(initial={'f_proveedor_id':proveedor.proveedor_id,'f_nombre_proveedor':proveedor.nombre_proveedor,'f_direccion_proveedor':proveedor.direccion_proveedor,'f_cuit':proveedor.cuit})
-    return render( request, 'app_entrega1/actualizar_proveedor.html',{'miformulario':miformulario,'proveedor':proveedor})
+    return render( request, 'app_entrega1/actualizar_proveedor.html',{'miformulario':miformulario,'proveedor':proveedor,'all_proveedores':all_proveedores})
 
 def actualizar_venta(request,venta_id):
   venta=ventas.objects.get(venta_id=venta_id)
@@ -157,10 +163,12 @@ def actualizar_venta(request,venta_id):
       venta.cantidad_venta = producto_actualizado['f_cantidad_venta']
       venta.usuario_id = producto_actualizado['f_usuario_id']
       venta.save()
-      return render(request,'app_entrega1/buscar_ventas.html')
+      all_ventas = ventas.objects.all()
+      return render(request,'app_entrega1/buscar_ventas.html',{'all_ventas':all_ventas})
   else:
+    all_ventas = ventas.objects.all()
     miformulario=ventas_formularios(initial={'f_venta_id':venta.venta_id,'f_fecha_venta':venta.fecha_venta,'f_cantidad_venta':venta.cantidad_venta,'f_usuario_id':venta.usuario_id})
-    return render( request, 'app_entrega1/actualizar_venta.html',{'miformulario':miformulario,'venta':venta})
+    return render( request, 'app_entrega1/actualizar_venta.html',{'miformulario':miformulario,'venta':venta,'all_ventas':all_ventas})
 
 def actualizar_producto(request,producto_id):
   producto=productos.objects.get(producto_id=producto_id)
@@ -174,10 +182,32 @@ def actualizar_producto(request,producto_id):
       producto.tipo_producto = producto_actualizado['f_tipo_producto']
       producto.precio = producto_actualizado['f_precio']
       producto.save()
-      return render(request,'app_entrega1/buscar_ventas.html')
+      all_productos = productos.objects.all()
+      return render(request,'app_entrega1/buscar_productos.html',{'all_productos':all_productos})
   else:
+    all_productos = productos.objects.all()
     miformulario=productos_formulario(initial={'f_producto_id':producto.producto_id,'f_nombre_producto':producto.nombre_producto,'f_empresa':producto.empresa,'f_tipo_producto':producto.tipo_producto,'f_precio':producto.precio})
-    return render( request, 'app_entrega1/actualizar_producto.html',{'miformulario':miformulario,'producto':producto})
+    return render( request, 'app_entrega1/actualizar_producto.html',{'miformulario':miformulario,'producto':producto,'all_productos':all_productos})
+
+def login_request(request):
+  if request=='POST':
+    form=AuthenticationForm(request,data=request.POST)
+    if form.is_valid():
+      usu=request.POST['username']
+      password=request.POST['password']
+
+      usuario= authenticate(username=usu,password=password)
+      if usuario is not None:
+        login(request,usuario)
+        return render(request, 'app_entrega1/inicio/', {'mensaje':f'bienvenido: {usuario}'})
+      else:
+        return render(request, 'app_entrega1/login_request',{'mensaje':"Usuario o contrasenia incorrecta"})
+    else:
+      return render(request, 'app_entrega1/login_request',{'mensaje':"Usuario o contrasenia incorrecta"})
+
+  else:
+    form=AuthenticationForm()
+    return render(request,"app_entrega1/login_request.html", {"formulario":form})
 
 
 

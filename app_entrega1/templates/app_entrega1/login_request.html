@@ -1,0 +1,17 @@
+{% extends 'app_entrega1/bd.html' %}
+
+{% load static %}
+{% block titulo %}
+  <h1>LOGIN</h1>
+ 
+{% endblock %}
+{% block formulario_agregar %}
+<form action="{% url 'login_request' %}" method="POST">{% csrf_token %}
+    <table>
+      {{ formulario.as_table }}
+    </table>
+    <button type="submit">INICIAR SESION</button>
+</form>
+{% endblock %}
+
+
